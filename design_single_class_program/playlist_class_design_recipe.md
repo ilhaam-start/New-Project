@@ -1,6 +1,7 @@
 1. Describe the Problem
-
-Within the class:
+    > As a user
+    > So that I can keep track of my music listening
+    > I want to add tracks I've listened to and see a list of them.
 
 
 2. Design the Class Interface
@@ -8,34 +9,27 @@ Within the class:
 Include the initializer, public properties, and public methods with all parameters, return values, and side-effects.
 
 """
-class TaskTracker():
+class MusicTracker():
     # User-facing properties:
     #   name: string
     
-    def __init__(self, name):
+    def __init__(self):
         # Parameters:
-        #   name: string representing name
         #   Holds a list that is updated
         pass # No code here yet
 
-    def add_todo(self, task):
+    def add_track(self, track):
         # Parameters:
-        #   task: string representing task
+        #   track: string representing the track
         pass # No code here yet
 
-    def view_todo(self):
+    def view_tracks(self):
         # Parameters:
         #   None
         # Returns:
-        #   all the tasks in todo that haven't been completed
+        #   the list of tracks added
         pass # No code here yet
 
-    def mark_complete(self, task):
-        # Parameters:
-        #   task: string representing the tasks.
-        # Returns:
-        #   Removes the completed task from the list and returns the new list
-        pass # No code here yet
 """
 
 3. Create Examples as Tests
@@ -43,29 +37,49 @@ class TaskTracker():
 Make a list of examples of how the class will behave in different situations.
 
 # EXAMPLE
+"""
+Given an empty list
+#add_track raises an exception
+"""
+musictracker = MusicTracker()
+musictracker.add_track("") # raises an error with the message "No track added."
 
 """
-Given a task
-#add_todo adds the task to the todo list
+Given one track
+#add_track adds the track to our list
 """
-tasktracker = TaskTracker()
-tasktracker.add_todo("Do the laundry")
-tasktracker = TaskTracker() # => adds "Do the laundry" to list
+musictracker = MusicTracker()
+musictracker.add_track("purple rain")
+musictracker = MusicTracker() # => adds "purple rain" to list
 
 """
-Given an empty task
-#add_todo raises an exception
-"""
-tasktracker = TaskTracker()
-tasktracker.add_todo("") # raises an error with the message "No task added."
+Given that multiple tracks are added
+#add_track will add multiple tracks to the list
+musictracker = MusicTracker()
+musictracker.add_track("purple rain")
+musictracker.add_track("wavin' flag")
+musictracker.add_track("when doves cry")
+musictracker = MusicTracker() # => [adds to all tracks to this list]
 
 """
-Given that task is completed
-#mark_complete still removes the task from the list and returns the reduced list
+Given one track, it returns the track in a list
+#view_tracks allows us to view the tracks in the list
 """
-tasktracker = TaskTracker()
-tasktracker.mark_complete("Do the laundry")
-tasktracker.view_todo() # => should return the reduced list
+musictracker = MusicTracker()
+musictracker.add_track("purple rain")
+musictracker.view_tracks()
+musictracker = MusicTracker() # => shows us ["purple rain"]
+
+"""
+Given multiple tracks, it returns the tracks in a list
+#view_tracks allows us to view the tracks in the list
+"""
+musictracker = MusicTracker()
+musictracker.add_track("purple rain")
+musictracker.add_track("wavin' flag")
+musictracker.add_track("when doves cry")
+musictracker.view_tracks()
+musictracker = MusicTracker() # => shows us ["purple rain", "wavin' flag", "when doves cry"]
 
 4. Implement the Behaviour
 
