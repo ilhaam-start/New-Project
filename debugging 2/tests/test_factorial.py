@@ -1,6 +1,6 @@
 def factorial(n):
     product = 1
-    while n > 0:
+    while n > 1:
         n -= 1
         product *= n
     return product
