@@ -1,5 +1,5 @@
-from lib.task_list import TaskList
-from lib.task import Task
+from lib.task_list import *
+from lib.task import *
 
 
 def test_adds_tasks_to_list():
@@ -9,8 +9,7 @@ def test_adds_tasks_to_list():
     task_list.add(task_1)
     task_list.add(task_2)
     assert task_list.tasks == [task_1, task_2]
-
-
+    
 def test_marks_tasks_as_complete():
     task_list = TaskList()
     task_1 = Task("Walk the dog")
